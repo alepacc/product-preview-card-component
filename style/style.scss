@@ -33,7 +33,7 @@ body{
     max-width: $breakpoint-desktop;
     background-color: $cream;
     height: 100vh;
-    @media screen  and (max-width: $breakpoint-mobile){
+    @media screen and (max-width: $breakpoint-mobile){
         width: 100%;
 
     }
@@ -96,7 +96,7 @@ p{
 
   
     &__image--mobile{
-        @media (min-width: 426px){ // nascondi immagine desktop
+        @media (min-width: 426px){ // hide desktop image
             display: none;
         }
         max-inline-size: 100%;
@@ -104,7 +104,7 @@ p{
     }
 
     &__image--desktop{
-        @media (max-width: $breakpoint-mobile){ // nascondi immagine mobile
+        @media (max-width: $breakpoint-mobile){ // hide mobile image
             display: none;
         }
         width: 100%;
