@@ -10,7 +10,7 @@ $cream: hsl(30, 38%, 92%);
 $white: hsl(0, 0%, 100%);
 
 // Breakpoints
-$breakpoint-mobile: 375px;
+$breakpoint-mobile: 425px;
 $breakpoint-desktop: 1440px;
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -29,11 +29,11 @@ body{
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    padding: 2em 1em;
-    max-width: 1440px;
+    padding: 32px 16px;
+    max-width: $breakpoint-desktop;
     background-color: $cream;
     height: 100vh;
-    @media screen  and (max-width: 375px){
+    @media screen  and (max-width: $breakpoint-mobile){
         width: 100%;
 
     }
@@ -51,41 +51,35 @@ h1{
 p{
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    
+    margin: 0;
 }
+
+
 
 .card{
     display: flex;
-    gap: 1em;
     @media screen and (max-width: $breakpoint-mobile){
         flex-direction: column;
     }
-    @media screen and (min-width: 376px){
+    @media screen and (min-width: 426px){
         flex-direction: row;
-        width: 80%;
+        width: 600px;
     }
-    width: 100%;
     border-radius: 20px;
     background-color: $white;
 
     &__content{
         display: flex;
         flex-direction: column;
-        gap: inherit;
+        gap: 16px;
         justify-content: center;
-        padding: 20px;
-        @media screen and (min-width: 376px){
-            flex: 1 1 0;
-            min-width: 0; // Per evitare overflow
+        padding: 32px;
+        @media screen and (min-width: 426px){
+            flex: 1 1;
         } 
     }
     
     section {
-        @media screen and (max-width: 375px){
-            &:not(:first-child){
-                padding: 0 20px 20px;
-            }
-        }
         @media screen and (min-width: 430px){
             width: 50%;
         }
@@ -102,7 +96,7 @@ p{
 
   
     &__image--mobile{
-        @media (min-width: 376px){ // nascondi immagine desktop
+        @media (min-width: 426px){ // nascondi immagine desktop
             display: none;
         }
         max-inline-size: 100%;
@@ -110,7 +104,7 @@ p{
     }
 
     &__image--desktop{
-        @media (max-width: 375px){ // nascondi immagine mobile
+        @media (max-width: $breakpoint-mobile){ // nascondi immagine mobile
             display: none;
         }
         width: 100%;
@@ -144,7 +138,7 @@ p{
         color:$white;
         background-color: $green-500;
         border:none;
-        border-radius: 5px;
+        border-radius: 10px;
         padding: 16px 32px; 
         font-family: 'Montserrat', sans-serif;
         font-weight: 700;
@@ -153,5 +147,12 @@ p{
         align-items: center;
         justify-content: center;
         gap: 10px;
-    }
+        
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover{
+            background-color: $green-700;
+        }
+        
+    } 
 }
