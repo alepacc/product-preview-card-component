@@ -1,0 +1,148 @@
+
+// primary colors
+$green-500: hsl(158, 36%, 37%);
+$green-700: hsl(158, 42%, 18%);
+
+// neutral colors
+$black: hsl(212, 21%, 14%);
+$grey: hsl(228, 12%, 48%);
+$cream: hsl(30, 38%, 92%);
+$white: hsl(0, 0%, 100%);
+
+// Breakpoints
+$breakpoint-mobile: 375px;
+$breakpoint-desktop: 1440px;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;1,9..144,700&display=swap');
+body{
+    font-size: 0.875em; //14px
+    margin: 0;
+    padding: 0;
+    color: $grey;
+    line-height: 1.5;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2em 1em;
+    max-width: 1440px;
+    background-color: $cream;
+    height: 100vh;
+    @media screen  and (max-width: 375px){
+        width: 100%;
+
+    }
+}
+
+h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    color: $black;
+    font-size: 2.5em; // 40px
+    line-height: 1;
+    margin: 0;
+}
+
+p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    
+}
+
+.card{
+    display: flex;
+    gap: 1em;
+    @media screen and (max-width: $breakpoint-mobile){
+        flex-direction: column;
+        width: 100%;
+    }
+    @media screen and (min-width: 376px){
+        flex-direction: row;
+        width: 80%;
+    }
+    border-radius: 20px;
+    background-color: $white;
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap: inherit;
+        justify-content: center;
+        padding: 20px;
+
+    }
+    
+    section {
+        @media screen and (max-width: 375px){
+            &:not(:first-child){
+                padding: 0 20px 20px;
+            }
+        }
+    }
+    
+    &__title{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 14px;
+    }
+
+  
+    &__image--mobile{
+        @media (min-width: 376px){
+            display: none;
+        }
+        max-inline-size: 100%;
+        border-radius: 20px 20px 0 0;
+    }
+
+    &__image--desktop{
+        @media (max-width: 375px){
+            display: none;
+        }
+    
+        border-radius: 20px 0 0 20px;
+
+    }
+
+    &__price{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+        margin: 0;
+    }
+
+    &__price--actual{
+        text-decoration: line-through;
+    }
+
+    &__price--discount{ 
+        font-family: "Fraunces", serif;
+        font-weight: 700;
+        font-size: 2.5em;
+        line-height: 1.2;
+        color: $green-500;
+    }
+
+    &__button{
+        color:$white;
+        background-color: $green-500;
+        border:none;
+        border-radius: 5px;
+        padding: 16px 32px; 
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+}
